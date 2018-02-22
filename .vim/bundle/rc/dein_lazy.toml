@@ -1,0 +1,38 @@
+[[plugins]]
+repo = 'Shougo/neocomplete.vim'
+on_i = 1
+
+# 特定のファイルタイプで読み込む
+
+[[plugins]]
+repo  = 'tpope/vim-rails'
+on_ft = ['ruby', 'erb', 'haml', 'slim', 'eruby']
+
+[[plugins]]
+repo  = 'vim-ruby/vim-ruby'
+on_ft = ['ruby']
+
+[[plugins]]
+repo  = 'slim-template/vim-slim'
+on_ft = ['slim']
+
+[[plugins]]
+repo  = 'tpope/vim-haml'
+on_ft = ['haml']
+
+[[plugins]]
+repo  = 'pangloss/vim-javascript'
+on_ft = ['javascript']
+
+# ES6
+[[plugins]]
+repo = 'othree/yajs.vim'
+on_ft = ['javascript']
+
+[[plugins]]
+repo = 'cespare/vim-toml'
+on_ft = ['toml']
+
+[[plugins]]
+repo = 'stephpy/vim-yaml'
+on_ft = ['yaml']
