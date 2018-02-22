@@ -7,6 +7,7 @@ set showcmd    " 入力中のコマンドをステータスに表示する
 
 " 見た目系
 filetype plugin indent on
+syntax on
 set autoindent            " 自動インデントを有効に
 set ambiwidth=double      " 全角記号の表示幅を修正
 set number                " 行番号を表示
