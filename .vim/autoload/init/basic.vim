@@ -11,7 +11,6 @@ syntax on
 set autoindent            " 自動インデントを有効に
 set ambiwidth=double      " 全角記号の表示幅を修正
 set number                " 行番号を表示
-set cursorline            " 現在の行を強調表示
 set scrolloff=8           " 上下8行の視界を確保
 set ttyfast               " カーソル移動高速化
 set autoread              " 外部でファイルに変更がされた場合は読みなおす
