@@ -26,12 +26,6 @@ set wildmode=list:longest " コマンドラインの補完
 highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=white
 match ZenkakuSpace /　/
 
-"INSERTモードのときだけ横線解除
-augroup set_cursorline
-  autocmd!
-  autocmd InsertEnter,InsertLeave * set cursorline!  "redraw!
-augroup END
-
 " Tab系
 set list listchars=tab:\▸\- " 不可視文字を可視化(タブが「▸-」と表示される)
 set tabstop=2               " 行頭以外のTab文字の表示幅（スペースいくつ分）
