@@ -25,4 +25,6 @@ repo = 'scrooloose/syntastic'
 [[plugins]]
 repo = 'wakatime/vim-wakatime'
 
+[[plugins]]
+ repo = 'editorconfig/editorconfig-vim'
 
