@@ -1,5 +1,7 @@
 .DS_Store
 .vim/bundle/repos/github.com/
 .vim/bundle/.cache/
+.vim/bundle/cache_vi
 .vim/bundle/cache_vim
+.vim/bundle/state_vi.vim
 .vim/bundle/state_vim.vim
