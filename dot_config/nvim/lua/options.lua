@@ -1,7 +1,4 @@
 -- 基本設定
-
--- ヒアドキュメント
-cat > dot_config/nvim/lua/options.lua << 'EOF'
 local opt = vim.opt
 
 -- 行番号
@@ -41,4 +38,3 @@ opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 -- 分割
 opt.splitright = true
 opt.splitbelow = true
-EOF

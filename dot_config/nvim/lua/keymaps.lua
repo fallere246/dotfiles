@@ -1,4 +1,3 @@
-cat > dot_config/nvim/lua/keymaps.lua << 'EOF'
 local keymap = vim.keymap
 
 -- ファイル保存
@@ -24,4 +23,3 @@ keymap.set("v", ">", ">gv")
 -- 行移動
 keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 keymap.set("v", "K", ":m '<-2<CR>gv=gv")
-EOF

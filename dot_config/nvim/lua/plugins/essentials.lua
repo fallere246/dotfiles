@@ -1,4 +1,3 @@
-cat > dot_config/nvim/lua/plugins/essentials.lua << 'EOF'
 return {
   -- カラースキーム
   {
@@ -100,4 +99,3 @@ return {
     end,
   },
 }
-EOF

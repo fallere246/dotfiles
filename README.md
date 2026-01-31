@@ -1,4 +1,3 @@
-cat > README.md << 'EOF'
 # dotfiles
 
 [chezmoi](https://www.chezmoi.io/) で管理するNeovim設定
@@ -75,4 +74,3 @@ nvim
     └── plugins/
         └── essentials.lua  # プラグイン設定
 ```
-EOF
