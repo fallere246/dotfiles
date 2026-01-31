@@ -36,9 +36,19 @@ return {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
     config = function()
-      require("nvim-treesitter.configs").setup({
-        ensure_installed = { "lua", "vim", "javascript", "typescript", "tsx", "json" },
-        highlight = { enable = true },
+      local status_ok, configs = pcall(require, "nvim-treesitter.configs")
+      if not status_ok then
+        return
+      end
+      
+      configs.setup({
+        ensure_installed = { "lua", "vim", "vimdoc", "javascript", "typescript", "tsx", "json" },
+        sync_install = false,
+        auto_install = true,
+        highlight = { 
+          enable = true,
+          additional_vim_regex_highlighting = false,
+        },
         indent = { enable = true },
       })
     end,
@@ -57,9 +67,22 @@ return {
         ensure_installed = { "ts_ls", "lua_ls" },
       })
       
+      -- LSP設定
       local lspconfig = require("lspconfig")
+      
+      -- TypeScript
       lspconfig.ts_ls.setup({})
-      lspconfig.lua_ls.setup({})
+      
+      -- Lua
+      lspconfig.lua_ls.setup({
+        settings = {
+          Lua = {
+            diagnostics = {
+              globals = { "vim" },
+            },
+          },
+        },
+      })
     end,
   },
 
@@ -75,10 +98,12 @@ return {
     },
     config = function()
       local cmp = require("cmp")
+      local luasnip = require("luasnip")
+      
       cmp.setup({
         snippet = {
           expand = function(args)
-            require("luasnip").lsp_expand(args.body)
+            luasnip.lsp_expand(args.body)
           end,
         },
         mapping = cmp.mapping.preset.insert({
@@ -87,6 +112,24 @@ return {
           ["<C-Space>"] = cmp.mapping.complete(),
           ["<C-e>"] = cmp.mapping.abort(),
           ["<CR>"] = cmp.mapping.confirm({ select = true }),
+          ["<Tab>"] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+              cmp.select_next_item()
+            elseif luasnip.expand_or_jumpable() then
+              luasnip.expand_or_jump()
+            else
+              fallback()
+            end
+          end, { "i", "s" }),
+          ["<S-Tab>"] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+              cmp.select_prev_item()
+            elseif luasnip.jumpable(-1) then
+              luasnip.jump(-1)
+            else
+              fallback()
+            end
+          end, { "i", "s" }),
         }),
         sources = cmp.config.sources({
           { name = "nvim_lsp" },
